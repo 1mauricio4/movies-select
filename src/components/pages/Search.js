@@ -13,8 +13,7 @@ const Search = () => {
 
   useEffect(() => {
     searchMovies(query);
-  }, [])
-
+  }, [query])
   
   return (
     <Movies />
