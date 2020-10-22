@@ -15,6 +15,7 @@ import NotFound from './components/pages/NotFound';
 import Bookmarks from './components/pages/Bookmarks';
 
 const Movie = lazy(() => import('./components/movies/Movie'));
+const Search = lazy(() => import('./components/pages/Search'))
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
                 <Route exact path='/' component={Home} />
                 <Route exact path='/detail/:slug' component={Movie} />
                 <Route exact path='/bookmarks' component={Bookmarks} />
+                <Route exact path='/search/:query' component={Search} />
                 <Route component={NotFound} />
               </Switch>
               </Suspense>

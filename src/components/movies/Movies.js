@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, Fragment, Suspense, lazy } from 'react';
+import React, { useContext, Fragment, Suspense, lazy } from 'react';
 
 // Component
 // import MovieItem from './MovieItem';
@@ -14,10 +14,6 @@ const Movies = ({}) => {
   const movieContext = useContext(MovieContext);
 
   const { genre, loading, search, initialMovies } = movieContext;
-
-  // useEffect(() => {
-  //   initialMovies();
-  // }, []);
 
   if (loading) {
     return <Loading />;
