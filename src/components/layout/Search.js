@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 // Context
@@ -7,8 +7,9 @@ import MovieContext from '../../context/movie/movieContext';
 import AlertContext from '../../context/alert/alertContext';
 
 const Search = ({ icon }) => {
-  const { searchMovies, clearSearch, search } = useContext(MovieContext);
+  const {  clearSearch, search } = useContext(MovieContext);
   const { setAlert } = useContext(AlertContext);
+  let history = useHistory();
 
   const [text, setText] = useState('');
 
@@ -19,8 +20,9 @@ const Search = ({ icon }) => {
     if (text.length <= 0) {
       setAlert('Search field cannot be empty', 'light');
     } else {
-      searchMovies(text);
+      const searchTx = text;
       setText('');
+      history.push(`/search/${searchTx}`)
     }
   };
 

@@ -1,20 +1,19 @@
-import React, { useEffect, useContext, Fragment } from 'react';
+import React, { useContext, Fragment, Suspense, lazy } from 'react';
 
 // Component
-import MovieItem from './MovieItem';
+// import MovieItem from './MovieItem';
 import Loading from '../layout/Loading';
 
 // Context
 import MovieContext from '../../context/movie/movieContext';
 
-const Movies = () => {
+const MovieItem = lazy(() => import('./MovieItem'));
+
+
+const Movies = ({}) => {
   const movieContext = useContext(MovieContext);
 
   const { genre, loading, search, initialMovies } = movieContext;
-
-  useEffect(() => {
-    initialMovies();
-  }, []);
 
   if (loading) {
     return <Loading />;
@@ -26,7 +25,9 @@ const Movies = () => {
     <Fragment>
       {movieGen.length > 0 ? (
         movieGen.map((gen, i) => (
+          <Suspense fallback={<div>Loading...</div>}>
           <MovieItem key={i} movieCat={genre[gen]} genre={gen} />
+          </Suspense>
         ))
       ) : (
         <div>
