@@ -10,10 +10,10 @@ import MovieContext from '../../context/movie/movieContext';
 const MovieItem = lazy(() => import('./MovieItem'));
 
 
-const Movies = ({}) => {
+const Movies = () => {
   const movieContext = useContext(MovieContext);
 
-  const { genre, loading, search, initialMovies } = movieContext;
+  const { genre, loading } = movieContext;
 
   if (loading) {
     return <Loading />;

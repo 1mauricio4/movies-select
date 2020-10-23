@@ -47,11 +47,6 @@ const Search = ({ icon }) => {
           onChange={onChange}
         />
       </form>
-      {search && (
-        <button onClick={clearSearch} className='btn btn-light btn-block'>
-          Clear
-        </button>
-      )}
     </div>
   );
 };

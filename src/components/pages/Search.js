@@ -4,7 +4,6 @@ import { useParams } from 'react-router-dom'
 // Context
 import MovieContext from '../../context/movie/movieContext';
 
-// const Movies = lazy(() => import('../movies/Movies'))
 import Movies from '../movies/Movies'
 
 const Search = () => {
